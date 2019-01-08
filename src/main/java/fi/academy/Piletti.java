@@ -1,9 +1,6 @@
 package fi.academy;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 
@@ -13,7 +10,7 @@ public class Piletti {
 
     @Id
     @GeneratedValue
-    public Integer id;
+    public long id;
     public String title;
     public String category;
     public Integer price;
@@ -23,7 +20,7 @@ public class Piletti {
     public Date paivays;
     public Time klo;
 
-    public Piletti(Integer id, String title, String category, Integer price, String district, String info, String contact, Date starttime) {
+    public Piletti(long id, String title, String category, Integer price, String district, String info, String contact, Date starttime) {
         this.id = id;
         this.title = title;
         this.category = category;
@@ -54,11 +51,11 @@ public class Piletti {
         this.klo = klo;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
