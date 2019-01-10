@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -28,6 +27,12 @@ public class PilettiController {
     public Iterable<Piletti> sortatutViisi() {
         Iterable<Piletti> sortatutViisi= pilettirepo.getFirstFive(new PageRequest(0,5));
         return sortatutViisi;
+    }
+
+    @GetMapping(value = "/sortatutTulevat")
+    public Iterable<Piletti> sortatutTulevat() {
+        Iterable<Piletti> sortatutTulevat= pilettirepo.findAllIncoming();
+        return sortatutTulevat;
     }
 
     @GetMapping(value = "/sortatutViisi")

@@ -12,6 +12,9 @@ public interface PilettiRepository extends CrudRepository<Piletti, Integer> {
     @Query("SELECT p FROM Piletti p ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> findAll();
 
-    @Query("SELECT p FROM Piletti p WHERE paivays > current_date ORDER BY paivays ASC, klo ASC")
+    @Query("SELECT p FROM Piletti p WHERE paivays >= current_date ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> getNextFive(PageRequest pageRequest);
+
+    @Query("SELECT p FROM Piletti p WHERE paivays >= current_date ORDER BY paivays ASC, klo ASC")
+    Iterable<Piletti> findAllIncoming();
 }
