@@ -29,7 +29,7 @@ public class PilettiController {
         return sortatutViisi;
     }
 
-    @GetMapping(value = "/sortatutTulevat")
+    @GetMapping(value = "/kategoria/sortatutTulevat")
     public Iterable<Piletti> sortatutTulevat() {
         Iterable<Piletti> sortatutTulevat= pilettirepo.findAllIncoming();
         return sortatutTulevat;
@@ -47,25 +47,25 @@ public class PilettiController {
         return sortatut;
     }
 
-    @GetMapping(value = "/kategoria/Urheilu")
+    @GetMapping(value = "/kategoria/urheilu")
     public Iterable<Piletti> urheilu() {
         Iterable<Piletti> urheilu = pilettirepo.findAllInSports();
         return urheilu;
     }
 
-    @GetMapping(value = "/kategoria/Musiikki")
+    @GetMapping(value = "/kategoria/musiikki")
     public Iterable<Piletti> musiikki() {
         Iterable<Piletti> musiikki = pilettirepo.findAllInMusic();
         return musiikki;
     }
 
-    @GetMapping(value = "/kategoria/Kulttuuri")
+    @GetMapping(value = "/kategoria/kulttuuri")
     public Iterable<Piletti> kulttuuri() {
         Iterable<Piletti> kulttuuri = pilettirepo.findAllInCulture();
         return kulttuuri;
     }
 
-    @GetMapping(value = "/kategoria/Muu")
+    @GetMapping(value = "/kategoria/muu")
     public Iterable<Piletti> muut() {
         Iterable<Piletti> muut = pilettirepo.findAllInOther();
         return muut;
