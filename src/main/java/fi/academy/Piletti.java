@@ -19,8 +19,9 @@ public class Piletti {
     public String contact;
     public Date paivays;
     public Time klo;
+    public Integer generatedcode;
 
-    public Piletti(long id, String title, String category, Integer price, String district, String info, String contact, Date starttime) {
+    public Piletti(long id, String title, String category, Integer price, String district, String info, String contact, Date starttime, Integer generatedcode) {
         this.id = id;
         this.title = title;
         this.category = category;
@@ -30,6 +31,15 @@ public class Piletti {
         this.contact = contact;
         this.paivays = paivays;
         this.klo = klo;
+        this.generatedcode = generatedcode;
+    }
+
+    public Integer getGeneratedcode() {
+        return generatedcode;
+    }
+
+    public void setGeneratedcode(Integer generatedcode) {
+        this.generatedcode = generatedcode;
     }
 
     public Piletti(){
