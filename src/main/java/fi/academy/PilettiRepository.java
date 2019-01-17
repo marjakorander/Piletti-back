@@ -5,23 +5,23 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PilettiRepository extends CrudRepository<Piletti, Integer> {
-    //ekat viisi päivämäärän ja ajan mukaan sortattuna
+    //first five sorted by date and time
     @Query("SELECT p FROM Piletti p ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> getFirstFive(PageRequest pageRequest);
 
-    //kaikki päivämäärän ja ajan mukaan sortattuna
+    //all sorted by date and time
     @Query("SELECT p FROM Piletti p ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> findAll();
 
-    // ekat viisi tulevaa päivämäärän ja ajan mukaan sortattuna
+    // first five incoming sorted by date and time
     @Query("SELECT p FROM Piletti p WHERE paivays >= current_date ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> getNextFive(PageRequest pageRequest);
 
-    // kaikki tulevat päivämäärän ja ajan mukaan sortattuna
+    // all incoming sorted by date and time
     @Query("SELECT p FROM Piletti p WHERE paivays >= current_date ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> findAllIncoming();
 
-    // HAUT KATEGORIOITTAIN
+    // FILTERING BY CATEGORIES
 
     @Query("SELECT p FROM Piletti p WHERE category like 'Musiikki' and paivays >= current_date ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> findAllInMusic();
