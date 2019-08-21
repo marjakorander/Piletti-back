@@ -23,13 +23,15 @@ public class PilettiController {
         return piletit;
     }
 
+    //PageRequest.of(firstResult, maxResults, Sort.by(...))
+
     @GetMapping(value = "/sortattu")
     public Iterable<Piletti> sortatutViisi() {
-        Iterable<Piletti> sortatutViisi= pilettirepo.getFirstFive(new PageRequest(0,5));
+        Iterable<Piletti> sortatutViisi= pilettirepo.getFirstFive(PageRequest.of(0,5));
         return sortatutViisi;
     }
 
-    @GetMapping(value = "/kategoria/sortatutTulevat")
+    @GetMapping(value = "/sortatutTulevat")
     public Iterable<Piletti> sortatutTulevat() {
         Iterable<Piletti> sortatutTulevat= pilettirepo.findAllIncoming();
         return sortatutTulevat;
@@ -37,7 +39,7 @@ public class PilettiController {
 
     @GetMapping(value = "/sortatutViisi")
     public Iterable<Piletti> sortatutViisiSeuraavaa() {
-        Iterable<Piletti> sortatutViisiSeuraavaa= pilettirepo.getNextFive(new PageRequest(0,6));
+        Iterable<Piletti> sortatutViisiSeuraavaa= pilettirepo.getNextFive(PageRequest.of(0,6));
         return sortatutViisiSeuraavaa;
     }
 

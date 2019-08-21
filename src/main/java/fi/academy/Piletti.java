@@ -21,7 +21,7 @@ public class Piletti {
     public Time klo;
     public Integer code;
 
-    public Piletti(long id, String title, String category, Integer price, String district, String info, String contact, Date starttime, Integer code) {
+    public Piletti(long id, String title, String category, Integer price, String district, String info, String contact, Date paivays, Time klo, Integer code) {
         this.id = id;
         this.title = title;
         this.category = category;
