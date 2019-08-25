@@ -17,19 +17,6 @@ public class PilettiController {
         this.pilettirepo = pilettirepo;
 
     }
-    @GetMapping(value = "/etusivu")
-    public Iterable<Piletti> pilettilistaus() {
-        Iterable<Piletti> piletit = pilettirepo.findAll();
-        return piletit;
-    }
-
-    //PageRequest.of(firstResult, maxResults, Sort.by(...))
-
-    @GetMapping(value = "/sortattu")
-    public Iterable<Piletti> sortatutViisi() {
-        Iterable<Piletti> sortatutViisi= pilettirepo.getFirstFive(PageRequest.of(0,5));
-        return sortatutViisi;
-    }
 
     @GetMapping(value = "/sortatutTulevat")
     public Iterable<Piletti> sortatutTulevat() {
@@ -47,30 +34,6 @@ public class PilettiController {
     public Iterable<Piletti> sortatutPiletit() {
         Iterable<Piletti> sortatut = pilettirepo.findAll();
         return sortatut;
-    }
-
-    @GetMapping(value = "/kategoria/urheilu")
-    public Iterable<Piletti> urheilu() {
-        Iterable<Piletti> urheilu = pilettirepo.findAllInSports();
-        return urheilu;
-    }
-
-    @GetMapping(value = "/kategoria/musiikki")
-    public Iterable<Piletti> musiikki() {
-        Iterable<Piletti> musiikki = pilettirepo.findAllInMusic();
-        return musiikki;
-    }
-
-    @GetMapping(value = "/kategoria/kulttuuri")
-    public Iterable<Piletti> kulttuuri() {
-        Iterable<Piletti> kulttuuri = pilettirepo.findAllInCulture();
-        return kulttuuri;
-    }
-
-    @GetMapping(value = "/kategoria/muu")
-    public Iterable<Piletti> muut() {
-        Iterable<Piletti> muut = pilettirepo.findAllInOther();
-        return muut;
     }
 
     @PostMapping(value = "/uusi")
