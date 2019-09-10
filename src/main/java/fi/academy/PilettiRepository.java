@@ -4,7 +4,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface PilettiRepository extends CrudRepository<Piletti, Integer> {
+public interface PilettiRepository extends CrudRepository<Piletti, Long> {
 
     //all sorted by date and time
     @Query("SELECT p FROM Piletti p ORDER BY paivays ASC, klo ASC")
@@ -17,4 +17,7 @@ public interface PilettiRepository extends CrudRepository<Piletti, Integer> {
     // all incoming sorted by date and time
     @Query("SELECT p FROM Piletti p WHERE paivays >= current_date ORDER BY paivays ASC, klo ASC")
     Iterable<Piletti> findAllIncoming();
+
+    // @Query("DELETE FROM Piletti p WHERE id = id")
+    // Iterable<Piletti> deleteById();
 }

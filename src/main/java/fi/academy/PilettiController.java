@@ -1,5 +1,4 @@
 package fi.academy;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,6 @@ public class PilettiController {
     @Autowired
     public PilettiController(PilettiRepository pilettirepo){
         this.pilettirepo = pilettirepo;
-
     }
 
     @GetMapping(value = "/sortatutTulevat")
@@ -42,5 +40,9 @@ public class PilettiController {
         return ResponseEntity.created(new URI("/uusi/" + result.getId()))
                 .body(result);
     }
-}
 
+    @DeleteMapping(value ="/piletti/{id}")
+    public void deletePiletti(@PathVariable long id) {
+        pilettirepo.deleteById(id);
+    }
+}
